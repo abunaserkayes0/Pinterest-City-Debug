@@ -55,6 +55,7 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
+  // Destructing
   const { image, userImage } = post;
   const { user, text } = post.comments[0];
   const div = document.createElement("article");
@@ -143,7 +144,7 @@ const createPost = (post) => {
 
 const showPosts = (posts) => {
   const productsContainer = document.getElementById("posts");
-  productsContainer.innerHTML = "";
+  productsContainer.textContent = "";
 
   posts.forEach((post) => {
     const div = createPost(post);
@@ -162,7 +163,7 @@ const displayLikedPosts = () => {
 
 const displayReportedPosts = () => {
   const reportedPosts = getReportedPosts();
-  document.getElementById("reported").innerHTML = "";
+  document.getElementById("reported").textContent = "";
   reportedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("reported").appendChild(div);
